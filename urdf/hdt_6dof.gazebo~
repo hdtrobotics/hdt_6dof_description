@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<robot>
+	<!-- ros_control plugin -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/hdt_6dof</robotNamespace>
+		</plugin>
+	</gazebo>
+
+	<!-- link 1 -->
+	<gazebo reference="link1">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/Green</material>
+	</gazebo>
+	<!-- link 2a -->
+	<gazebo reference="link2a">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- link 2b -->
+	<gazebo reference="link2b">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- link 3 -->
+	<gazebo reference="link3">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/Green</material>
+	</gazebo>
+	<!-- link 4a -->
+	<gazebo reference="link4a">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- link 4b -->
+	<gazebo reference="link4b">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- link 5 -->
+	<gazebo reference="link5">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/Green</material>
+	</gazebo>
+	<!-- link 6a -->
+	<gazebo reference="link6a">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- link 6b -->
+	<gazebo reference="link6b">
+		<selfCollide>true</selfCollide>
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- link 7 -->
+	<gazebo reference="link7">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- palm -->
+	<gazebo reference="palm">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- thumb base -->
+	<gazebo reference="thumb_base">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- thumb prox -->
+	<gazebo reference="thumb_prox">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- thumb med -->
+	<gazebo reference="thumb_med">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- thumb dist -->
+	<gazebo reference="thumb_dist">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- index prox -->
+	<gazebo reference="index_prox">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- index med -->
+	<gazebo reference="index_med">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- index dist -->
+	<gazebo reference="index_dist">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- ring prox -->
+	<gazebo reference="ring_prox">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+	<!-- ring med -->
+	<gazebo reference="ring_med">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	<!-- ring dist -->
+	<gazebo reference="ring_dist">
+		<material>Gazebo/Grey</material>
+	</gazebo>
+</robot>

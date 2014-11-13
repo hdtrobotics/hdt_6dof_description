@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<robot name="hdt_6dof" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="default_color">
+    <color rgba="1.0 1.0 1.0 1.0" />
+  </xacro:macro>
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="world"/>
+
+  <joint name="joint_1" type="revolute">
+	<hdt id="1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="60.0" lower="-2.0944" upper="2.0944" velocity="2.0944"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
+    <child link="link_1"/>
+  </joint>
+
+  <link name="link_1">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_1.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_1f" type="fixed">
+    <parent link="link_1"/>
+    <child link="link_2a"/>
+    <origin rpy="0 0 0" xyz="0 0 0.09217"/>
+  </joint>
+
+  <link name="link_2a">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_2a.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_2" type="revolute">
+	<hdt id="2"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="60.0" lower="-2.0944" upper="2.0944" velocity="2.0944"/>
+    <origin rpy="0 0 0" xyz="0 0 0.07"/>
+    <parent link="link_2a"/>
+    <child link="link_2b"/>
+  </joint>
+
+  <link name="link_2b">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_2b.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_2f" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.077"/>
+    <parent link="link_2b"/>
+    <child link="link_3"/>
+  </joint>
+
+  <link name="link_3">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_3.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_3f" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.16271"/>
+    <parent link="link_3"/>
+    <child link="link_4a"/>
+  </joint>
+
+  <link name="link_4a">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_4a.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_4" type="revolute">
+	<hdt id="4"/>
+    <axis xyz="1 0 0"/>
+    <!--limit effort="60.0" lower="-2.6180" upper="1.5708" velocity="2.0944"/-->
+	<limit effort="60.0" lower="-1.5708" upper="1.5708" velocity="2.0944"/>
+    <origin rpy="0 0 0" xyz="0 0 0.07"/>
+    <parent link="link_4a"/>
+    <child link="link_4b"/>
+  </joint>
+
+  <link name="link_4b">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_4b.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_5" type="revolute">
+	<hdt id="5"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="60.0" lower="-2.0944" upper="2.0944" velocity="2.0944"/>
+    <origin rpy="0 0 0" xyz="0 -0.0413 0.074"/>
+    <parent link="link_4b"/>
+    <child link="link_5"/>
+  </joint>
+
+  <link name="link_5">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_5.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_5f" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.2 0"/>
+    <parent link="link_5"/>
+    <child link="link_6a"/>
+  </joint>
+
+  <link name="link_6a">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_6a.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_6" type="revolute">
+	<hdt id="6"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="60.0" lower="-1.5708" upper="1.5708" velocity="2.0944"/>
+    <origin rpy="0 0 0" xyz="0 -0.055 0"/>
+    <parent link="link_6a"/>
+    <child link="link_6b"/>
+  </joint>
+
+  <link name="link_6b">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_6b.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_7" type="revolute">
+	<hdt id="7"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="60.0" lower="-1.5708" upper="1.5708" velocity="2.0944"/>
+    <origin rpy="0 0 0" xyz="0 -0.0771 0"/>
+    <parent link="link_6b"/>
+    <child link="link_7"/>
+  </joint>
+
+  <link name="link_7">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/6dof_7.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="joint_palm" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.055 0"/>
+    <parent link="link_7"/>
+    <child link="link_palm"/>
+  </joint>
+
+  <link name="link_palm">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/palm.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_aa" type="revolute">
+	<hdt id="10"/>
+    <axis xyz="0 -1 0"/>
+    <!--limit effort="4.0" lower="-1.9199" upper="1.9199" velocity="4.1888"/-->
+	<limit effort="4.0" lower="-1.9199" upper="0.0" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.05289 0.01529"/>
+    <parent link="link_palm"/>
+    <child link="link_thumb_aa"/>
+  </joint>
+
+  <link name="link_thumb_aa">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/thumb_aa.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_link" type="fixed">
+    <origin rpy="0 0 0" xyz="0.00764 -0.02759 0.0474"/>
+    <parent link="link_thumb_aa"/>
+    <child link="link_thumb_link"/>
+  </joint>
+
+  <link name="link_thumb_link">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/thumb_link.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_prox" type="revolute">
+	<hdt id="11"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="4.0" lower="-0.5236" upper="1.5708" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 0 0.009"/>
+    <parent link="link_thumb_link"/>
+    <child link="link_thumb_prox"/>
+  </joint>
+
+  <link name="link_thumb_prox">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/thumb_prox.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_med" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="4.0" lower="0" upper="0.7854" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0435"/>
+    <parent link="link_thumb_prox"/>
+    <child link="link_thumb_med"/>
+  </joint>
+
+  <link name="link_thumb_med">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/thumb_med.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_tip" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="4.0" lower="0" upper="0.7854" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0277"/>
+    <parent link="link_thumb_med"/>
+    <child link="link_thumb_tip"/>
+  </joint>
+
+  <link name="link_thumb_tip">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/thumb_tip.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="index_link" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.1545 0.03465"/>
+    <parent link="link_palm"/>
+    <child link="link_index_link"/>
+  </joint>
+
+  <link name="link_index_link">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/index_link.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="index_prox" type="revolute">
+	<hdt id="12"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.0" lower="-0.5236" upper="1.5708" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.009 0"/>
+    <parent link="link_index_link"/>
+    <child link="link_index_prox"/>
+  </joint>
+
+  <link name="link_index_prox">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/index_prox.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="index_med" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="4.0" lower="0" upper="0.7854" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.0435 0"/>
+    <parent link="link_index_prox"/>
+    <child link="link_index_med"/>
+  </joint>
+
+  <link name="link_index_med">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/index_med.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="index_tip" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="4.0" lower="0" upper="0.7854" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.0277 0"/>
+    <parent link="link_index_med"/>
+    <child link="link_index_tip"/>
+  </joint>
+
+  <link name="link_index_tip">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/index_tip.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="ring_link" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.1545 -0.0193"/>
+    <parent link="link_palm"/>
+    <child link="link_ring_link"/>
+  </joint>
+
+  <link name="link_ring_link">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/ring_link.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="ring_prox" type="revolute">
+	<hdt id="13"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.0" lower="-0.5236" upper="1.5708" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.009 0"/>
+    <parent link="link_ring_link"/>
+    <child link="link_ring_prox"/>
+  </joint>
+
+  <link name="link_ring_prox">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/ring_prox.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="ring_med" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="4.0" lower="0" upper="0.7854" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.0435 0"/>
+    <parent link="link_ring_prox"/>
+    <child link="link_ring_med"/>
+  </joint>
+
+  <link name="link_ring_med">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/ring_med.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="ring_tip" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="4.0" lower="0" upper="0.7854" velocity="4.1888"/>
+    <origin rpy="0 0 0" xyz="0 -0.0277 0"/>
+    <parent link="link_ring_med"/>
+    <child link="link_ring_tip"/>
+  </joint>
+
+  <link name="link_ring_tip">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hdt_6dof_description/meshes/ring_tip.STL"/>
+      </geometry>
+      <material name="">
+        <xacro:default_color />
+      </material>
+    </visual>
+  </link>
+</robot>
+
