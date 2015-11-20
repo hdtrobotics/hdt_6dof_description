@@ -59,21 +59,21 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        arm_mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        lamp_link:
+        index_dist:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        light_link:
+        index_med:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        index_prox:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -128,7 +128,57 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        tug:
+        mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mounting_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        palm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_dist:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_med:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_prox:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_dist:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_med:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_prox:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -163,22 +213,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.56962
+      Distance: 2.41153
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.314529
-        Y: -1.01946
-        Z: 1.63934
+        X: -0.176399
+        Y: -0.431373
+        Z: 0.437963
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.264797
+      Pitch: 0.384797
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.49907
+      Yaw: 0.66907
     Saved: ~
 Window Geometry:
   Displays:
@@ -196,5 +246,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 280
-  Y: 70
+  X: 266
+  Y: 56

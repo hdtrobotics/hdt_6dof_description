@@ -20,16 +20,117 @@
 	<!-- import gazebo definitions -->
 	<xacro:include filename="$(find hdt_6dof_description)/urdf/hdt_6dof.gazebo" />
 
+     <!-- default inertia -->
+     <xacro:macro name="default_inertia">
+           <inertia
+           ixx="0.005" ixy="0.0" ixz="0.0"
+           iyy="0.005" iyz="0.0"
+           izz="0.005"/>
+     </xacro:macro>
+
 	<!-- segment 0 -->
 	<link name="base_link"/>
+
+	<!-- table -->
+	<joint name="table" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="table"/>
+	</joint>
+
+	<link name="table">
+		<visual>
+			<origin xyz="0 0 0.015" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.76 1.52 0.03"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+
+		<visual>
+			<origin xyz="0 0 0.015" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.76 1.52 0.03"/>
+			</geometry>
+		</visual>
+
+		<inertial>
+			<origin xyz="0 0 0.015" rpy="0 0 0"/>
+			<mass value="10.0"/>
+			<inertia
+			ixx="1.0" ixy="0.0" ixz="0.0"
+			iyy="1.0" iyz="0.0"
+			izz="1.0"/>
+		</inertial>
+	</link>
+
+	<!-- mount -->
+	<joint name="mount" type="fixed">
+		<origin xyz="0 0.03 0.03" rpy="0 0 0"/>
+		<parent link="table"/>
+		<child link="mount"/>
+	</joint>
+
+	<link name="mount">
+		<visual>
+			<origin xyz="0 0 0.02" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.76 0.14 0.04"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+
+		<visual>
+			<origin xyz="0 0 0.02" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.76 0.14 0.04"/>
+			</geometry>
+		</visual>
+
+		<inertial>
+			<origin xyz="0 0 0.02" rpy="0 0 0"/>
+			<mass value="2.0"/>
+			<xacro:default_inertia />
+		</inertial>
+	</link>
+
+	<!-- mounting plate -->
+	<joint name="mounting_plate" type="fixed">
+		<origin xyz="0 -0.005 0.04" rpy="0 0 0"/>
+		<parent link="mount"/>
+		<child link="mounting_plate"/>
+	</joint>
+
+	<link name="mounting_plate">
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://hdt_alias_description/meshes/mounting_plate.STL"/>
+			</geometry>
+		</collision>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://hdt_alias_description/meshes/mounting_plate.STL"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+
+		<inertial>
+		<origin xyz="0 0 0.01153444" rpy="0 0 0"/>
+		<mass value="0.42135368"/>
+			<xacro:default_inertia />
+		</inertial>
+	</link>
 
 	<!-- segment 1 -->
 	<joint name="joint1" type="revolute">
 		<hdt id="1" kmin="100" kmax="200" inertia="0.1"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="60.0" lower="-2.0944" upper="2.0944" velocity="2.0944"/>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<parent link="base_link"/>
+		<origin xyz="0 0 0.0225" rpy="0 0 0"/>
+		<parent link="mounting_plate"/>
 		<child link="link1"/>
     	<dynamics damping="0.7" friction="0.0"/>
 	</joint>
@@ -442,6 +543,16 @@
 		</inertial>
 	</link>
 
+	<!-- endpoint -->
+	<joint name="endpoint_joint" type="fixed">
+		<origin xyz="0 -0.055 0" rpy="0 0 0"/>
+		<parent link="link7"/>
+		<child link="endpoint_link"/>
+	</joint>
+
+	<link name="endpoint_link">
+	</link>
+
 	<!-- palm -->
 	<joint name="palm" type="fixed">
 		<origin xyz="0 -0.055 0" rpy="0 0 0"/>
@@ -526,7 +637,7 @@
 	<joint name="thumb_prox" type="revolute">
 		<hdt id="11" kmin="10" kmax="2" inertia="0.01"/>
 		<axis xyz="1 0 0"/>
-		<limit effort="4.0" lower="-0.7854" upper="1.5708" velocity="4.1888"/>
+		<limit effort="4.0" lower="-0.7854" upper="2.0944" velocity="4.1888"/>
 		<origin xyz="0.00214 -0.02759 0.05700" rpy="0 0 0"/>
 		<parent link="thumb_base"/>
 		<child link="thumb_prox"/>
@@ -639,7 +750,7 @@
 	<joint name="index_prox" type="revolute">
 		<hdt id="12" kmin="10" kmax="2" inertia="0.01"/>
 		<axis xyz="0 0 1"/>
-		<limit effort="4.0" lower="-0.7854" upper="1.5708" velocity="4.1888"/>
+		<limit effort="4.0" lower="-0.7854" upper="2.3561" velocity="4.1888"/>
 		<origin xyz="0 -0.16325 0.02701" rpy="0 0 0"/>
 		<parent link="palm"/>
 		<child link="index_prox"/>
@@ -752,7 +863,7 @@
 	<joint name="ring_prox" type="revolute">
 		<hdt id="13" kmin="10" kmax="2" inertia="0.01"/>
 		<axis xyz="0 0 1"/>
-		<limit effort="4.0" lower="-0.7854" upper="1.5708" velocity="4.1888"/>
+		<limit effort="4.0" lower="-0.7854" upper="2.3561" velocity="4.1888"/>
 		<origin xyz="0 -0.16325 -0.02701" rpy="0 0 0"/>
 		<parent link="palm"/>
 		<child link="ring_prox"/>
